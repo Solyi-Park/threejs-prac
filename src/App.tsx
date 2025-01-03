@@ -1,10 +1,10 @@
-import Container from "./components/Container";
+import CustomCanvas from "./components/CustomCanvas";
 import Layout from "./components/Layout";
 
 function App() {
   return (
     <Layout>
-      <Container />
+      <CustomCanvas />
     </Layout>
   );
 }
