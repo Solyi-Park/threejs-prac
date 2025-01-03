@@ -1,10 +1,14 @@
 import CustomCanvas from "./components/CustomCanvas";
+import { AdamHead } from "./../public/AdamHead";
 import Layout from "./components/Layout";
 
 function App() {
   return (
     <Layout>
-      <CustomCanvas />
+      <div></div>
+      <CustomCanvas>
+        <AdamHead />
+      </CustomCanvas>
     </Layout>
   );
 }

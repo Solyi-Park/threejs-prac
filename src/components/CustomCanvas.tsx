@@ -1,10 +1,18 @@
 import { Canvas } from "@react-three/fiber";
-import Element3d from "./Element3d";
 
-export default function CustomCanvas() {
+export default function CustomCanvas({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <Canvas>
-      <Element3d />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={1} />
+      <pointLight position={[-5, -5, -5]} intensity={0.5} />
+
+      {/* 3D모델 jsx컴포넌트 */}
+      {children}
     </Canvas>
   );
 }

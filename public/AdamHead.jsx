@@ -4,13 +4,21 @@ Command: npx gltfjsx@6.5.3 adamHead.gltf
 ExporterVersion: 2.2.0
 */
 
-import React from "react";
+import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export function AdamHead(props) {
   const { nodes, materials } = useGLTF("/adamHead.gltf");
+  const groupRef = useRef();
+
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.01;
+    }
+  });
   return (
-    <group {...props} dispose={null}>
+    <group ref={groupRef} {...props} dispose={null}>
       <group rotation={[Math.PI / 2, 0, 0]} scale={100}>
         <group position={[-0.003, -0.012, -0.008]} rotation={[-1.571, 0, 0]}>
           <mesh
